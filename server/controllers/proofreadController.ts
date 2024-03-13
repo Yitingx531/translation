@@ -8,18 +8,7 @@ type proofreadController = {
 };
 
 type months = {
-  Jan: string,
-  Feb: string,
-  Mar: string,
-  Apr: string,
-  May: string,
-  Jun: string,
-  Jul: string,
-  Aug: string,
-  Sep: string,
-  Oct: string,
-  Nov: string,
-  Dec: string,
+  [key: string]: string,
 }
 
 type dateArr = string[];
@@ -55,10 +44,10 @@ const proofreadController = {
        let correctDate = dateArr[2]+'-'+dateArr[1]+'-'+dateArr[0];
         // const { id, proofreader, filename, wordcount, date } = req.body;
         // const values = [ id, proofreader, filename, wordcount, date ];
-        // const value = [date];
-        const queryString = `INSERT INTO proofread (id, proofreader, filename, wordcount, date) VALUES (234, 'Eva', 'ppp' , 4000, '2024-03-12')`;
+        const value = [correctDate];
+        const queryString = `INSERT INTO proofread (id, proofreader, filename, wordcount, date) VALUES (234, 'yiting', 'ppp' , 4000, $1)`;
         // await db.query(queryString, values);
-        await db.query(queryString);
+        await db.query(queryString, value);
         const message = 'successfully inputed proofreader data';
         res.locals.message = message;
         next();
