@@ -107,7 +107,10 @@
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
   "includes": [
-    "./src/components/App.tsx"
+    "./src/components/App.tsx",
+    "./server/controller/proofreadController.ts",
+    "./server/server.ts"
+
   ],
   "exclude": [
     "node_modules",
