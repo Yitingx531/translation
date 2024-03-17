@@ -107,13 +107,12 @@
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
   "includes": [
-    "./src/components/App.tsx",
-    "./server/controller/proofreadController.ts",
-    "./server/server.ts"
-
+    "./src/**/*",
+    "./server/**/*",
+    "./declaration.d.ts",
   ],
   "exclude": [
     "node_modules",
-    "webpack.config.js"
+    "webpack.config.js",
   ]
 }

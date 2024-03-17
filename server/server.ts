@@ -14,6 +14,28 @@ app.post('/api/proofreading', proofreadController.postProofreadInfo, (req: Reque
     return res.status(200).send(res.locals.message);
 });
 
+type Error = {
+    log: string,
+    status: number,
+    message: string
+}
+
+// Catch All Handler
+app.use('*', (req: Request, res: Response) => {
+  return res.status(404).send('Page Not Found');
+});
+
+// GLOBAL ERROR HANDLER 
+app.use((error: Error, req: Request, res: Response) => {
+    const defaultError: Error = {
+        log: 'Global error handler, unkonwn middleware error',
+        status: 500,
+        message: 'Unknown server error. Please try again'
+    };
+    const errObj = Object.assign({}, defaultError, error);
+    return res.status(errObj.status).json(errObj.message);
+});
+
 app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}`);
 });

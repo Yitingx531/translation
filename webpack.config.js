@@ -31,13 +31,23 @@ module.exports = {
       module: {
         rules: [
           {
+            test: /\.(?:js|jsx)$/,
+            exclude: /node_modules/,
+            use: {
+              loader: 'babel-loader',
+              options: {
+                presets: ['@babel/preset-react', '@babel/preset-env']
+              }
+            },
+          },  
+          {
             test: /\.(ts|tsx)$/,
             exclude: /node_modules/,
             use: 'ts-loader',
           },
           {
-            test: /\.css$/i,
-            use: ["style-loader", "css-loader"],
+            test: /\.scss$/i,
+            use: ["style-loader", "css-loader", "sass-loader"],
           },
           {
             test: /\.(png|jpg|jpeg|gif)$/i,
@@ -46,6 +56,6 @@ module.exports = {
         ],
       },
       resolve: {
-        extensions: ['.tsx', '.ts', '.jsx', '.js', '...', '.css'],
+        extensions: ['.tsx', '.ts', '.jsx', '.js', '...', '.scss'],
       },
 }
