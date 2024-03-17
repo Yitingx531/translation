@@ -35,18 +35,12 @@ const proofreadController = {
         const dateArr: dateArr = date.split(' ');
         dateArr.splice(0, 1);
         for (let i = 0; i < dateArr.length; i++){
-         console.log('date[i]', dateArr[i])
          if (months.hasOwnProperty(dateArr[i])){
-           dateArr[i] = months[dateArr[i]];
          }
        }
        let correctDate = dateArr[2]+'-'+dateArr[0]+'-'+dateArr[1];
-        // const { id, proofreader, filename, wordcount, date } = req.body;
-        // const values = [ id, proofreader, filename, wordcount, date ];
         const value = [correctDate];
-        console.log('correctDate', correctDate);
-        const queryString = `INSERT INTO proofread (id, proofreader, filename, wordcount, date) VALUES (9090, 'yiting', 'ppp' , 4000, $1)`;
-        // await db.query(queryString, values);
+        const queryString = `INSERT INTO proofread (id, proofreader, filename, wordcount, date) VALUES (113, 'john', 'poi' ,2009, $1)`;
         await db.query(queryString, value);
         const message = 'successfully inputed proofreader data';
         res.locals.message = message;
