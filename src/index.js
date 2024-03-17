@@ -6,5 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const jsx_runtime_1 = require("react/jsx-runtime");
 const App_1 = __importDefault(require("./components/App"));
 const client_1 = require("react-dom/client");
+require("./static/styles.scss");
 const root = (0, client_1.createRoot)(document.getElementById('root'));
 root.render((0, jsx_runtime_1.jsx)(App_1.default, {}));

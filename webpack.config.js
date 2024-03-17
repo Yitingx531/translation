@@ -36,8 +36,8 @@ module.exports = {
             use: 'ts-loader',
           },
           {
-            test: /\.css$/i,
-            use: ["style-loader", "css-loader"],
+            test: /\.scss$/i,
+            use: ["style-loader", "css-loader", "sass-loader"],
           },
           {
             test: /\.(png|jpg|jpeg|gif)$/i,
@@ -46,6 +46,6 @@ module.exports = {
         ],
       },
       resolve: {
-        extensions: ['.tsx', '.ts', '.jsx', '.js', '...', '.css'],
+        extensions: ['.tsx', '.ts', '.jsx', '.js', '...', '.scss'],
       },
 }
