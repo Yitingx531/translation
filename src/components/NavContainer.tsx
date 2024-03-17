@@ -32,11 +32,13 @@ export default function NavContainer():React.JSX.Element{
     let correctDate = dateArr[2]+'-'+dateArr[0]+'-'+dateArr[1];
 return (
     <section id="navBar_container">
-        <ul >
-            <li>{correctDate}</li>
-            <li>Home</li>
-            <li><a href="https://www.linkedin.com/in/yiting-xiao/">LinkedIn</a></li>
-            <li><a href="https://github.com/Yitingx531">GitHub</a></li>
-        </ul>
+        <nav>
+            <a href="">{correctDate}</a>
+            <a href="#">About</a>
+            <a href="https://www.linkedin.com/in/yiting-xiao/">LinkedIn</a>
+            <a href="https://github.com/Yitingx531">GitHub</a>
+            <a href="">Home</a>
+            <div className="animation start-home"></div>
+        </nav>
     </section>
 )};
