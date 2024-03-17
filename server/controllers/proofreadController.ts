@@ -38,7 +38,7 @@ const proofreadController = {
          if (months.hasOwnProperty(dateArr[i])){
          }
        }
-       let correctDate = dateArr[2]+'-'+dateArr[0]+'-'+dateArr[1];
+        let correctDate = dateArr[2]+'-'+dateArr[0]+'-'+dateArr[1];
         const value = [correctDate];
         const queryString = `INSERT INTO proofread (id, proofreader, filename, wordcount, date) VALUES (113, 'john', 'poi' ,2009, $1)`;
         await db.query(queryString, value);
@@ -46,9 +46,9 @@ const proofreadController = {
         res.locals.message = message;
         next();
       } catch(error){
-        console.log('Error occurred adding proofreader file info', error);
+        console.log('Error occurred adding proofreader file info via proofreadController.postProofreadInfo middlware', error);
       }
     },
-}
+};
 
 module.exports = proofreadController;

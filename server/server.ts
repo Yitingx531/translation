@@ -26,13 +26,13 @@ app.use('*', (req: Request, res: Response) => {
 });
 
 // GLOBAL ERROR HANDLER 
-app.use((err: Error, req: Request, res: Response) => {
+app.use((error: Error, req: Request, res: Response) => {
     const defaultError: Error = {
         log: 'Global error handler, unkonwn middleware error',
         status: 500,
         message: 'Unknown server error. Please try again'
     };
-    const errObj = Object.assign({}, defaultError, err);
+    const errObj = Object.assign({}, defaultError, error);
     return res.status(errObj.status).json(errObj.message);
 });
 

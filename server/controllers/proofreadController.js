@@ -44,7 +44,7 @@ const proofreadController = {
             next();
         }
         catch (error) {
-            console.log('Error occurred adding proofreader file info', error);
+            console.log('Error occurred adding proofreader file info via proofreadController.postProofreadInfo middlware', error);
         }
     }),
 };
