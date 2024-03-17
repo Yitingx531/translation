@@ -109,10 +109,10 @@
   "includes": [
     "./src/**/*",
     "./server/**/*",
-    "./declaration.d.ts"
+    "./declaration.d.ts",
   ],
   "exclude": [
     "node_modules",
-    "webpack.config.js"
+    "webpack.config.js",
   ]
 }
