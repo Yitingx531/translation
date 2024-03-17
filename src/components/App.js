@@ -4,8 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const jsx_runtime_1 = require("react/jsx-runtime");
-const App_1 = __importDefault(require("./components/App"));
-const client_1 = require("react-dom/client");
-require("./static/styles.scss");
-const root = (0, client_1.createRoot)(document.getElementById('root'));
-root.render((0, jsx_runtime_1.jsx)(App_1.default, {}));
+const NavContainer_1 = __importDefault(require("../components/NavContainer"));
+function App() {
+    return ((0, jsx_runtime_1.jsx)("div", { children: (0, jsx_runtime_1.jsx)(NavContainer_1.default, {}) }));
+}
+exports.default = App;
