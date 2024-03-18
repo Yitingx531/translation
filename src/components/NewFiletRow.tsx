@@ -12,7 +12,7 @@ type NewRow = {
     date: string;
 };
 
-export default function PaymentRow(props: prop): React.JSX.Element {
+export default function NewFileRow(props: prop): React.JSX.Element {
     const [isClicked, setIsClicked] = useState(false);
     const [fileName, setFileName] = useState('');
     const [wordCount, setWordCount] = useState<number | undefined>(0);
@@ -47,7 +47,7 @@ export default function PaymentRow(props: prop): React.JSX.Element {
   
     return(
         <>
-     <section id='payment_row'>
+     <section id='new_file_row'>
                 <div id='row_date'>{props.correctDate}</div>
                 <input id='row_file_name' value={fileName} onChange={(e) => setFileName(e.target.value)} />
                 <input id='row_word_count' type="number" value={wordCount} onChange={(e) => setWordCount(parseInt(e.target.value))} />

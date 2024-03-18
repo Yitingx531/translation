@@ -11,7 +11,6 @@ export default function PaymentTrackingContainern(prop: prop):React.JSX.Element{
     return(
     <section>
     <PaymentHeader/>
-    <PaymentRow correctDate={prop.correctDate}/>
     </section>
     )
 }
