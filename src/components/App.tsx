@@ -11,7 +11,7 @@ export default function App(prop: prop):React.JSX.Element{
     return(
        <div>
             <NavContainer correctDate={prop.correctDate}/>
-            <PaymentTrackingContainern />
+            <PaymentTrackingContainern correctDate={prop.correctDate}/>
        </div>
     );
 }

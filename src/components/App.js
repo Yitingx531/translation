@@ -5,7 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const jsx_runtime_1 = require("react/jsx-runtime");
 const NavContainer_1 = __importDefault(require("../components/NavContainer"));
+const PaymentTrackingContainern_1 = __importDefault(require("../components/PaymentTrackingContainern"));
 function App(prop) {
-    return ((0, jsx_runtime_1.jsx)("div", { children: (0, jsx_runtime_1.jsx)(NavContainer_1.default, { correctDate: prop.correctDate }) }));
+    return ((0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)(NavContainer_1.default, { correctDate: prop.correctDate }), (0, jsx_runtime_1.jsx)(PaymentTrackingContainern_1.default, { correctDate: prop.correctDate })] }));
 }
 exports.default = App;
