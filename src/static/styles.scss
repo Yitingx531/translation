@@ -86,7 +86,7 @@ a:nth-child(1) {
     font-size: 1.2rem;
   }
 
-  #payment_row {
+  #new_file_row {
     display: flex;
     justify-content: space-around;
     div {
@@ -96,4 +96,11 @@ a:nth-child(1) {
     input {
         width: 25%;
     }
+  }
+
+  /* file info */
+  #file_info {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 3rem;
   }

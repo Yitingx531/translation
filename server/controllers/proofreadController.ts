@@ -1,10 +1,12 @@
 import { Request, Response, NextFunction } from 'express';
 const db = require('../connectToDB');
 
-type postProofreadInfo = () => void;
+type postProofreadInfo = (req: Request, res: Response, next: NextFunction) => void;
+type getProofreadInfo = (req: Request, res: Response, next: NextFunction) => void;
 
 type proofreadController = {
     postProofreadInfo: postProofreadInfo;
+    getProofreadInfo: getProofreadInfo;
 };
 
 type months = {
@@ -13,6 +15,17 @@ type months = {
 
 type dateArr = string[];
 const proofreadController = {
+    getProofreadInfo: async(req: Request, res: Response, next: NextFunction) => {
+    try{
+        const queryString = `SELECT * FROM proofread`;
+        const data = await db.query(queryString);
+        const cleanData = data.rows;
+        res.locals.files = cleanData;
+        next();
+    } catch(error) {
+       console.log('Error occurred getting proofreader files info via proofreadController.getProofreadInfo middlware', error)
+    }
+    },
     postProofreadInfo: async (req: Request, res: Response, next: NextFunction) => {
       try {
         const d = new Date();
