@@ -53,7 +53,7 @@ export default function NewFileRow(props: prop): React.JSX.Element {
         <input id='row_word_count' type="number" value={wordCount} onChange={(e) => setWordCount(parseInt(e.target.value))} />
         <input id='row_proofreader' value={proofreader} onChange={(e) => setProofreader(e.target.value)} />
     </section>
-        <button onClick={handleClick}>Add Proofreading File</button>
+        <button id='new_file_btn' onClick={handleClick}>Add Proofreading File</button>
     </>
     )
     };

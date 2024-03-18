@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import FileRow from './FileRow';
 type RowProps = {
     correctDate: string;
     proofreader: string;
@@ -9,34 +9,35 @@ type RowProps = {
 
 export default function FileInfo(props: RowProps): React.ReactElement {
     // Initialize state
-    const [files, setFiles] = useState<any[]>([]);
-
+    // const [files, setFiles] = useState<any[]>([]);
+    // const [date, setDate] = useState();
+    // const [filename, setFilename] = useState();
+    // const [wordcount, setWordcount] = useState();
+    // const [proofreader, setProofreader] = useState();
+   
+    const [rows, setRows] = useState<React.ReactNode[]>([])
     // Fetch data from API
     useEffect(() => {
         fetch('/api/proofreading')
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then(data => {
-                const rows = data.map((file: any) => ({
-
-                    date: file.date.slice(0, 10),
-                    filename: file.filename,
-                    wordcount: file.wordcount,
-                    proofreader: file.proofreader
-                }));
-                setFiles(rows);
+                // Render rows based on fetched data
+                const rows = data.map((file: any) => (
+                    <FileRow key={file.id} correctDate={file.date.slice(0, 10)} proofreader={file.proofreader} filename={file.filename} wordcount={file.wordcount}/>
+                ));
+                setRows(rows);
             })
             .catch(error => console.error('Error fetching data:', error));
     }, []);
+
     return (
         <section id='file_info'>
-            {files.map((file, index) => (
-                <div key={index}>
-                    <div id='date'>{file.date}</div>
-                    <div id='file_name'>{file.filename}</div>
-                    <div id='word_count'>{file.wordcount}</div>
-                    <div id='proofreader'>{file.proofreader}</div>
-                </div>
-            ))}
+            {rows}
         </section>
     );
 }

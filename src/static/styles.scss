@@ -78,12 +78,14 @@ a:nth-child(1) {
 
   /* payment tracking container && payment header*/
   #payment_header {
+    margin-top: 2rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
     height: 2rem;
     border: 1px solid pink;
     font-size: 1.2rem;
+    background-color: #E4C2C1;
   }
 
   #new_file_row {
@@ -98,9 +100,38 @@ a:nth-child(1) {
     }
   }
 
-  /* file info */
-  #file_info {
+  #new_file_btn {
+    margin-left: 2rem;
+    margin-top: 2rem;
+    display: inline-block;
+    outline: 0;
+    border:0;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    color: #000;
+    background: #fff;
+    line-height: 5px;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: #E4C2C1 -2px -2px 0px 2px, pink 0px 0px 0px 4px,#E4C2C1 0px 0px 2px 7px;
+    transition: all 0.2s;
+    :hover{
+        box-shadow: #151313 -2px -2px 0px 2px, rgb(186, 70, 244) 0px 0px 0px 4px, rgba(0, 0, 0, 0.05) 0px 0px 2px 7px;
+        transform: scale(1.01);
+    }
+}
+
+  /* FileRow */
+  #file_info_row {
     display: flex;
     justify-content: space-around;
     margin-bottom: 3rem;
+  }
+
+  /* FileInfo */
+  #file_info{
+    background-color: #cd9ba1;
   }
