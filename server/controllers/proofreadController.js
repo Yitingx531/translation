@@ -14,7 +14,7 @@ const proofreadController = {
     postProofreadInfo: (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
         try {
             const d = new Date();
-            const date = d.toDateString();
+            const dateString = d.toDateString();
             const months = {
                 Jan: '01',
                 Feb: '02',
@@ -29,16 +29,17 @@ const proofreadController = {
                 Nov: '11',
                 Dec: '12',
             };
-            const dateArr = date.split(' ');
+            const dateArr = dateString.split(' ');
             dateArr.splice(0, 1);
             for (let i = 0; i < dateArr.length; i++) {
                 if (months.hasOwnProperty(dateArr[i])) {
                 }
             }
             let correctDate = dateArr[2] + '-' + dateArr[0] + '-' + dateArr[1];
-            const value = [correctDate];
-            const queryString = `INSERT INTO proofread (id, proofreader, filename, wordcount, date) VALUES (113, 'john', 'poi' ,2009, $1)`;
-            yield db.query(queryString, value);
+            const { id, proofreader, filename, wordcount, date } = req.body;
+            const values = [id, proofreader, filename, wordcount, correctDate];
+            const queryString = `INSERT INTO proofread (id, proofreader, filename, wordcount, date) VALUES ($1, $2, $3, $4, $5)`;
+            yield db.query(queryString, values);
             const message = 'successfully inputed proofreader data';
             res.locals.message = message;
             next();
