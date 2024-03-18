@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 
 type RowProps = {
@@ -10,11 +10,11 @@ type RowProps = {
 
 export default function FileRow(prop: RowProps):React.JSX.Element {
   return (
-    <section id='file_info'>
-    {/* //     <div id='date'>{prop.correctDate}</div>
-    //     <div id='file_name'>{prop.filename}</div>
-    //     <div id='word_count'>{prop.wordcount}</div>
-    //     <div id='proofreader'>{prop.proofreader}</div> */}
+    <section id='file_info_row'>
+        <div id='date'>{prop.correctDate}</div>
+        <div id='file_name'>{prop.filename}</div>
+        <div id='word_count'>{prop.wordcount}</div>
+        <div id='proofreader'>{prop.proofreader}</div>
     </section>
   )
 }
