@@ -1,7 +1,7 @@
 import React from 'react';
 import NavContainer from '../components/NavContainer';
 import PaymentTrackingContainern from '../components/PaymentTrackingContainern';
-import NewFileRow from '../components/NewFiletRow';
+import NewFileRow from './NewFileRow';
 
 type prop = {
     correctDate: string,
