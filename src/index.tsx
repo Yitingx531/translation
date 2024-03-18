@@ -3,9 +3,13 @@ import App from './components/App';
 import { createRoot } from 'react-dom/client';
 import './static/styles.scss';
 
-type prop = {
+type RowProps = {
     correctDate: string,
-};
+    proofreader: string;
+    filename: string;
+    wordcount: number;
+  };
+
 type dateArr = string[];
 type months = {
     [key: string]: string
@@ -35,4 +39,4 @@ const d = new Date();
             }
             let correctDate = dateArr[2] + '-' + dateArr[0] + '-' + dateArr[1];
 const root = createRoot(document.getElementById('root')!);
-root.render(<App correctDate={correctDate}/>);
+root.render(<App correctDate={correctDate} proofreader='' filename='' wordcount={0}/>);

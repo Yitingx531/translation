@@ -16,8 +16,8 @@ type Error = {
     message: string
 };
 
-app.get('/', proofreadController.getProofreadInfo, (req: Request, res: Response) => {
-    return res.status(200).json(res.locals.files);
+app.get('/api/proofreading', proofreadController.getProofreadInfo, (req: Request, res: Response) => {
+    return res.status(200).send(res.locals.files);
 });
 
 app.post('/api/proofreading', proofreadController.postProofreadInfo, (req: Request, res: Response) => {

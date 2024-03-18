@@ -1,44 +1,42 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
-type prop ={
-    correctDate: string,
-};
-
-type Files = {
+type RowProps = {
+    correctDate: string;
     proofreader: string;
     filename: string;
     wordcount: number;
-};
+}
 
-export default function FileInfo(prop: prop):React.JSX.Element{
-    const [fileName, setFileName] = useState('');
-    const [wordCount, setWordCount] = useState<number | undefined>(0);
-    const [proofreader, setProofreader] = useState('');
+export default function FileInfo(props: RowProps): React.ReactElement {
+    // Initialize state
+    const [files, setFiles] = useState<any[]>([]);
+
+    // Fetch data from API
     useEffect(() => {
-        const fetchData = async() => {
-            try{
-                const response = await fetch('/');
-                const data = await response.json();
-                
-                console.log('data', data)
-                setFileName(data.filename);
-                setWordCount(data.wordcount);
-                setProofreader(data.proofreader);
-            } catch (error: any){
-                console.log(error.message);
-            }
-        }
-        fetchData();
+        fetch('/api/proofreading')
+            .then(response => response.json())
+            .then(data => {
+                const rows = data.map((file: any) => ({
+
+                    date: file.date.slice(0, 10),
+                    filename: file.filename,
+                    wordcount: file.wordcount,
+                    proofreader: file.proofreader
+                }));
+                setFiles(rows);
+            })
+            .catch(error => console.error('Error fetching data:', error));
     }, []);
-    
     return (
-        <>
         <section id='file_info'>
-            <div id='date'>{prop.correctDate}</div>
-            <div id='file_name'>{fileName}</div>
-            <div id='word_count'>{wordCount}</div>
-            <div id='proofreader'>{proofreader}</div>
-            </section>
-        </>
-    )
+            {files.map((file, index) => (
+                <div key={index}>
+                    <div id='date'>{file.date}</div>
+                    <div id='file_name'>{file.filename}</div>
+                    <div id='word_count'>{file.wordcount}</div>
+                    <div id='proofreader'>{file.proofreader}</div>
+                </div>
+            ))}
+        </section>
+    );
 }
