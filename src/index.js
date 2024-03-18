@@ -31,4 +31,4 @@ for (let i = 0; i < dateArr.length; i++) {
 }
 let correctDate = dateArr[2] + '-' + dateArr[0] + '-' + dateArr[1];
 const root = (0, client_1.createRoot)(document.getElementById('root'));
-root.render((0, jsx_runtime_1.jsx)(App_1.default, { correctDate: correctDate }));
+root.render((0, jsx_runtime_1.jsx)(App_1.default, { correctDate: correctDate, proofreader: '', filename: '', wordcount: 0 }));

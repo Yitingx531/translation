@@ -2,16 +2,19 @@ import React from 'react';
 import PaymentHeader from './PaymentHeader';
 import FileInfo from './FileInfo';
 
-type prop = {
+type RowProps = {
     correctDate: string,
-};
+    proofreader: string;
+    filename: string;
+    wordcount: number;
+  }
 
-export default function PaymentTrackingContainern(prop: prop):React.JSX.Element{
+export default function PaymentTrackingContainern(prop: RowProps):React.JSX.Element{
 
     return(
     <section>
     <PaymentHeader/>
-    <FileInfo correctDate={prop.correctDate}/>
+    <FileInfo correctDate={prop.correctDate} proofreader={prop.proofreader} filename={prop.filename} wordcount={prop.wordcount}/>
     </section>
     )
 }

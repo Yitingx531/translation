@@ -1,18 +1,21 @@
 import React from 'react';
 import NavContainer from '../components/NavContainer';
 import PaymentTrackingContainern from '../components/PaymentTrackingContainern';
-import NewFileRow from '../components/NewFiletRow';
+import NewFileRow from './NewFileRow';
 
-type prop = {
+type RowProps = {
     correctDate: string,
-};
+    proofreader: string;
+    filename: string;
+    wordcount: number;
+  }
 
-export default function App(prop: prop):React.JSX.Element{
+export default function App(prop: RowProps):React.JSX.Element{
  
     return(
        <div>
             <NavContainer correctDate={prop.correctDate}/>
-            <PaymentTrackingContainern correctDate={prop.correctDate}/>
+            <PaymentTrackingContainern correctDate={prop.correctDate} proofreader={prop.proofreader} filename={prop.filename} wordcount={prop.wordcount}/>
             <NewFileRow correctDate={prop.correctDate}/>
        </div>
     );
