@@ -11,7 +11,7 @@ export default function PaymentTrackingContainern(prop: prop):React.JSX.Element{
     return(
     <section>
     <PaymentHeader/>
-    <FileInfo/>
+    <FileInfo correctDate={prop.correctDate}/>
     </section>
     )
 }

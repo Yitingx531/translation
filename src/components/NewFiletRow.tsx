@@ -43,17 +43,17 @@ export default function NewFileRow(props: prop): React.JSX.Element {
         } catch (error: any) {
             console.log(error.message);
         }
-    }
+    };
   
     return(
-        <>
+    <>
      <section id='new_file_row'>
-                <div id='row_date'>{props.correctDate}</div>
-                <input id='row_file_name' value={fileName} onChange={(e) => setFileName(e.target.value)} />
-                <input id='row_word_count' type="number" value={wordCount} onChange={(e) => setWordCount(parseInt(e.target.value))} />
-                <input id='row_proofreader' value={proofreader} onChange={(e) => setProofreader(e.target.value)} />
-            </section>
-            <button onClick={handleClick}>Send File</button>
+        <div id='row_date'>{props.correctDate}</div>
+        <input id='row_file_name' value={fileName} onChange={(e) => setFileName(e.target.value)} />
+        <input id='row_word_count' type="number" value={wordCount} onChange={(e) => setWordCount(parseInt(e.target.value))} />
+        <input id='row_proofreader' value={proofreader} onChange={(e) => setProofreader(e.target.value)} />
+    </section>
+        <button onClick={handleClick}>Add Proofreading File</button>
     </>
     )
     };
