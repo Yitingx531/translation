@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import FileRow from './FileRow';
+const { v4: uuidv4 } = require('uuid')
 
 type prop = {
     correctDate: string,
 };
 type NewRow = {
-    id: number;
+    id: string;
     proofreader: string;
     filename: string;
     wordcount: number;
@@ -27,7 +28,7 @@ export default function NewFileRow(props: prop): React.JSX.Element {
         setIsClicked(true);
         try {
             const newRow: NewRow = {
-                id: Math.floor(Math.random() * 10000),
+                id: uuidv4(),
                 proofreader: proofreader,
                 filename: fileName,
                 wordcount: wordCount || 0,
