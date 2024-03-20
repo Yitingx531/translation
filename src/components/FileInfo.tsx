@@ -8,13 +8,6 @@ type RowProps = {
 }
 
 export default function FileInfo(props: RowProps): React.ReactElement {
-    // Initialize state
-    // const [files, setFiles] = useState<any[]>([]);
-    // const [date, setDate] = useState();
-    // const [filename, setFilename] = useState();
-    // const [wordcount, setWordcount] = useState();
-    // const [proofreader, setProofreader] = useState();
-   
     const [rows, setRows] = useState<React.ReactNode[]>([])
     // Fetch data from API
     useEffect(() => {
