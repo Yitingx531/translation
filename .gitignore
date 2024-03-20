@@ -1,2 +1,12 @@
 /node_modules
 /dist
+/src/components/App.js
+/src/components/FileInfo.js
+/src/components/FileRow.js
+/src/components/NavContainer.js
+/src/components/NewFileRow.js
+/src/components/PaymentHeader.js
+/src/components/PaymentTrackingContainern.js
+/server/server.js
+/server/controllers/proofreadController.js
+/server/connectToDB.js
