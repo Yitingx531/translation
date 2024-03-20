@@ -12,6 +12,8 @@ export default function PaymentHeader():React.JSX.Element{
     <div id='file_name'>File Name</div>
     <div id='word_count'>Word Count</div>
     <div id='proofreader'>Proofreader</div>
+    <div id='proofreader'>Pay to Proofreader</div>
+    <div id='proofreader'>Profit</div>
     </section>
     )
 }

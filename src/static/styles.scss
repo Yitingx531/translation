@@ -2,8 +2,8 @@ body{
     font-family: "Open Sans", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-    font-variation-settings:
-      "wdth" 100;
+    font-variation-settings: "wdth" 100;
+      margin-bottom: 5rem;
 }
 
 nav {
@@ -86,17 +86,22 @@ a:nth-child(1) {
     border: 1px solid pink;
     font-size: 1.2rem;
     background-color: #E4C2C1;
+    div {
+      // padding: 1rem;
+      // width: 15%;
+      // margin-left: auto;
+      // margin-right: auto;
+    }
   }
 
   #new_file_row {
     display: flex;
-    justify-content: space-around;
+    // justify-content: space-around;
     div {
-        width: 25%;
-        text-align: center
+        width: 15%;
     };
     input {
-        width: 25%;
+        width: 20%;
     }
   }
 
@@ -133,5 +138,9 @@ a:nth-child(1) {
 
   /* FileInfo */
   #file_info{
+    background-color: #cd9ba1;
+  }
+
+  #add_new_row {
     background-color: #cd9ba1;
   }

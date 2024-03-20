@@ -8,7 +8,9 @@ type RowProps = {
     proofreader: string;
     filename: string;
     wordcount: number;
-  };
+    proofreaderPay: number;
+    profit:number;
+  }
 
 type dateArr = string[];
 type months = {
@@ -39,4 +41,4 @@ const d = new Date();
             }
             let correctDate = dateArr[2] + '-' + dateArr[0] + '-' + dateArr[1];
 const root = createRoot(document.getElementById('root')!);
-root.render(<App correctDate={correctDate} proofreader='' filename='' wordcount={0}/>);
+root.render(<App correctDate={correctDate} proofreader='' filename='' wordcount={0} proofreaderPay={0} profit={0}/>);
