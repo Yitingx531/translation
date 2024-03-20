@@ -50,9 +50,9 @@ export default function NewFileRow(props: prop): React.JSX.Element {
 
     return (
         <>
-            <div>
+            <div id='add_new_row'>
                 {files.map((file) => (
-                     <FileRow key={file.id} correctDate={file.date.slice(0, 10)} proofreader={file.proofreader} filename={file.filename} wordcount={file.wordcount}/>
+                     <FileRow key={file.id} correctDate={file.date.slice(0, 10)} proofreader={file.proofreader} filename={file.filename} wordcount={file.wordcount} proofreaderPay={file.wordcount/1000*10}/>
                 ))}
             </div>
             <section id='new_file_row'>

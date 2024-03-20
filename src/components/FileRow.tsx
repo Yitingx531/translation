@@ -6,6 +6,7 @@ type RowProps = {
     proofreader: string;
     filename: string;
     wordcount: number;
+    proofreaderPay: number;
   }
 
 export default function FileRow(prop: RowProps):React.JSX.Element {
@@ -15,6 +16,7 @@ export default function FileRow(prop: RowProps):React.JSX.Element {
         <div id='file_name'>{prop.filename}</div>
         <div id='word_count'>{prop.wordcount}</div>
         <div id='proofreader'>{prop.proofreader}</div>
+        <div id='proofreader'>{prop.proofreaderPay}</div>
     </section>
   )
 }

@@ -92,11 +92,11 @@ a:nth-child(1) {
     display: flex;
     justify-content: space-around;
     div {
-        width: 25%;
+        width: 20%;
         text-align: center
     };
     input {
-        width: 25%;
+        width: 20%;
     }
   }
 
@@ -133,5 +133,9 @@ a:nth-child(1) {
 
   /* FileInfo */
   #file_info{
+    background-color: #cd9ba1;
+  }
+
+  #add_new_row {
     background-color: #cd9ba1;
   }
