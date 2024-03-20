@@ -5,6 +5,8 @@ type RowProps = {
     proofreader: string;
     filename: string;
     wordcount: number;
+    proofreaderPay: number;
+    profit: number;
 }
 
 export default function FileInfo(props: RowProps): React.ReactElement {
@@ -21,7 +23,7 @@ export default function FileInfo(props: RowProps): React.ReactElement {
             .then(data => {
                 // Render rows based on fetched data
                 const rows = data.map((file: any) => (
-                    <FileRow key={file.id} correctDate={file.date.slice(0, 10)} proofreader={file.proofreader} filename={file.filename} wordcount={file.wordcount} proofreaderPay={Math.floor(file.wordcount/1000*10)}/>
+                    <FileRow key={file.id} correctDate={file.date.slice(0, 10)} proofreader={file.proofreader} filename={file.filename} wordcount={file.wordcount} proofreaderPay={Math.floor(file.wordcount/1000*10) * 7.2} profit={Math.floor(file.wordcount/1000 * 180) - Math.floor(file.wordcount/1000*10) * 7.2}/>
                 ));
                 setRows(rows);
             })

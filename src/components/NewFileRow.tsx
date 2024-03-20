@@ -10,6 +10,8 @@ type NewRow = {
     filename: string;
     wordcount: number;
     date: string;
+    proofreaderPay: number;
+    profit: number;
 };
 
 export default function NewFileRow(props: prop): React.JSX.Element {
@@ -18,6 +20,8 @@ export default function NewFileRow(props: prop): React.JSX.Element {
     const [wordCount, setWordCount] = useState<number | undefined>(0);
     const [proofreader, setProofreader] = useState('');
     const [files, setFiles] = useState<NewRow[]>([]);
+    const [proofreaderPay, setProofreaderPay] = useState(0);
+    const [profit, setProfit] = useState(0);
 
     const handleClick = async () => {
         setIsClicked(true);
@@ -27,7 +31,9 @@ export default function NewFileRow(props: prop): React.JSX.Element {
                 proofreader: proofreader,
                 filename: fileName,
                 wordcount: wordCount || 0,
-                date: props.correctDate
+                date: props.correctDate,
+                proofreaderPay: proofreaderPay,
+                profit: profit
             };
 
             const response = await fetch('api/proofreading', {
@@ -52,7 +58,7 @@ export default function NewFileRow(props: prop): React.JSX.Element {
         <>
             <div id='add_new_row'>
                 {files.map((file) => (
-                     <FileRow key={file.id} correctDate={file.date.slice(0, 10)} proofreader={file.proofreader} filename={file.filename} wordcount={file.wordcount} proofreaderPay={file.wordcount/1000*10}/>
+                     <FileRow key={file.id} correctDate={file.date.slice(0, 11)} proofreader={file.proofreader} filename={file.filename} wordcount={file.wordcount} proofreaderPay={Math.floor(file.wordcount/1000*10) * 7.2} profit={file.wordcount/1000 * 180 - Math.floor(file.wordcount/1000*10) * 7.2}/>
                 ))}
             </div>
             <section id='new_file_row'>
