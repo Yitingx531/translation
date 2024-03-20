@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-const { v4: uuidv4 } = require('uuid')
+const { v4: uuidv4 } = require('uuid');
 const db = require('../connectToDB');
 
 type postProofreadInfo = (req: Request, res: Response, next: NextFunction) => void;
@@ -54,8 +54,8 @@ const proofreadController = {
        }
         let correctDate = dateArr[2]+'-'+dateArr[0]+'-'+ dateArr[1];
         const { id, proofreader, filename, wordcount, date } = req.body;
-        // const values = [ uuidv4(), proofreader, filename, wordcount, correctDate];
-        const values = [ uuidv4(), 'yitingxiao', 'newfile', 4000, correctDate]
+        const values = [ uuidv4(), proofreader, filename, wordcount, correctDate];
+        // const values = [ uuidv4(), 'yitingxiao', 'newfile', 4000, correctDate]
         const queryString = `INSERT INTO proofread (id, proofreader, filename, wordcount, date) VALUES ($1, $2, $3, $4, $5)`;
         await db.query(queryString, values);
         const message = 'successfully inputed proofreader data';
