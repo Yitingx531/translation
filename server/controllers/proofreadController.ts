@@ -1,10 +1,12 @@
 import { Request, Response, NextFunction } from 'express';
 const db = require('../connectToDB');
 
-type postProofreadInfo = () => void;
+type postProofreadInfo = (req: Request, res: Response, next: NextFunction) => void;
+type getProofreadInfo = (req: Request, res: Response, next: NextFunction) => void;
 
 type proofreadController = {
     postProofreadInfo: postProofreadInfo;
+    getProofreadInfo: getProofreadInfo;
 };
 
 type months = {
@@ -13,10 +15,21 @@ type months = {
 
 type dateArr = string[];
 const proofreadController = {
+    getProofreadInfo: async(req: Request, res: Response, next: NextFunction) => {
+    try{
+        const queryString = `SELECT * FROM proofread`;
+        const data = await db.query(queryString);
+        const cleanData = data.rows;
+        res.locals.files = cleanData;
+        next();
+    } catch(error) {
+       console.log('Error occurred getting proofreader files info via proofreadController.getProofreadInfo middlware', error)
+    }
+},
     postProofreadInfo: async (req: Request, res: Response, next: NextFunction) => {
       try {
         const d = new Date();
-        const date = d.toDateString();
+        const dateString = d.toDateString();
         const months: months = {
          Jan: '01',
          Feb: '02',
@@ -32,16 +45,17 @@ const proofreadController = {
          Dec: '12',
          }
         
-        const dateArr: dateArr = date.split(' ');
+        const dateArr: dateArr = dateString.split(' ');
         dateArr.splice(0, 1);
         for (let i = 0; i < dateArr.length; i++){
          if (months.hasOwnProperty(dateArr[i])){
          }
        }
-        let correctDate = dateArr[2]+'-'+dateArr[0]+'-'+dateArr[1];
-        const value = [correctDate];
-        const queryString = `INSERT INTO proofread (id, proofreader, filename, wordcount, date) VALUES (113, 'john', 'poi' ,2009, $1)`;
-        await db.query(queryString, value);
+        let correctDate = dateArr[2]+'-'+dateArr[0]+'-'+ dateArr[1];
+        const { id, proofreader, filename, wordcount, date } = req.body;
+        const values = [ id, proofreader, filename, wordcount, correctDate]
+        const queryString = `INSERT INTO proofread (id, proofreader, filename, wordcount, date) VALUES ($1, $2, $3, $4, $5)`;
+        await db.query(queryString, values);
         const message = 'successfully inputed proofreader data';
         res.locals.message = message;
         next();

@@ -10,15 +10,19 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.resolve(__dirname, '../dist')));
 
-app.post('/api/proofreading', proofreadController.postProofreadInfo, (req: Request, res: Response) => {
-    return res.status(200).send(res.locals.message);
-});
-
 type Error = {
     log: string,
     status: number,
     message: string
-}
+};
+
+app.get('/api/proofreading', proofreadController.getProofreadInfo, (req: Request, res: Response) => {
+    return res.status(200).send(res.locals.files);
+});
+
+app.post('/api/proofreading', proofreadController.postProofreadInfo, (req: Request, res: Response) => {
+    return res.status(200).send(res.locals.message);
+});
 
 // Catch All Handler
 app.use('*', (req: Request, res: Response) => {

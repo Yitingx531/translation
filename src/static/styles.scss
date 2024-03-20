@@ -2,8 +2,8 @@ body{
     font-family: "Open Sans", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-    font-variation-settings:
-      "wdth" 100;
+    font-variation-settings: "wdth" 100;
+      margin-bottom: 5rem;
 }
 
 nav {
@@ -21,7 +21,7 @@ nav {
     a {
         line-height: 50px;
         height: 100%;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         display: inline-block;
         position: relative;
         z-index: 1;
@@ -73,4 +73,74 @@ a:nth-child(1) {
     width: 25%;
     left: 75%;
     background-color: #D1A080;
+  }
+
+
+  /* payment tracking container && payment header*/
+  #payment_header {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 2rem;
+    border: 1px solid pink;
+    font-size: 1.2rem;
+    background-color: #E4C2C1;
+    div {
+      // padding: 1rem;
+      // width: 15%;
+      // margin-left: auto;
+      // margin-right: auto;
+    }
+  }
+
+  #new_file_row {
+    display: flex;
+    // justify-content: space-around;
+    div {
+        width: 15%;
+    };
+    input {
+        width: 20%;
+    }
+  }
+
+  #new_file_btn {
+    margin-left: 2rem;
+    margin-top: 2rem;
+    display: inline-block;
+    outline: 0;
+    border:0;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    color: #000;
+    background: #fff;
+    line-height: 5px;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: #E4C2C1 -2px -2px 0px 2px, pink 0px 0px 0px 4px,#E4C2C1 0px 0px 2px 7px;
+    transition: all 0.2s;
+    :hover{
+        box-shadow: #151313 -2px -2px 0px 2px, rgb(186, 70, 244) 0px 0px 0px 4px, rgba(0, 0, 0, 0.05) 0px 0px 2px 7px;
+        transform: scale(1.01);
+    }
+}
+
+  /* FileRow */
+  #file_info_row {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 3rem;
+  }
+
+  /* FileInfo */
+  #file_info{
+    background-color: #cd9ba1;
+  }
+
+  #add_new_row {
+    background-color: #cd9ba1;
   }
