@@ -4,10 +4,12 @@ const db = require('../connectToDB');
 
 type postProofreadInfo = (req: Request, res: Response, next: NextFunction) => void;
 type getProofreadInfo = (req: Request, res: Response, next: NextFunction) => void;
+type deleteProofreadFile = (req: Request, res: Response, next: NextFunction) => void;
 
 type proofreadController = {
     postProofreadInfo: postProofreadInfo;
     getProofreadInfo: getProofreadInfo;
+    deleteProofreadFile: deleteProofreadFile;
 };
 
 type months = {
@@ -65,6 +67,17 @@ const proofreadController = {
         console.log('Error occurred adding proofreader file info via proofreadController.postProofreadInfo middlware', error);
       }
     },
+    deleteProofreadFile: async(req: Request, res: Response, next: NextFunction) => {
+      try{
+      const queryString = `delete from proofread where id='89063842-8b40-4758-902d-732f4e3f4e15'`;
+      await db.query(queryString);
+      const message = 'successfully deleted a proofreading file';
+      res.locals.message = message;
+      return next();
+      } catch (error){
+        console.log('Error occurred adding proofreader file info via proofreadController.deleteProofreadFile middlware', error);
+      }
+    }
 };
 
 module.exports = proofreadController;

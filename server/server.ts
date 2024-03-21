@@ -24,10 +24,14 @@ app.post('/api/proofreading', proofreadController.postProofreadInfo, (req: Reque
     return res.status(200).send(res.locals.message);
 });
 
+app.delete('/api/proofreading', proofreadController.deleteProofreadFile, (req: Request, res: Response) => {
+    return res.status(200).send(res.locals.message);
+})
 // Catch All Handler
 app.use('*', (req: Request, res: Response) => {
   return res.status(404).send('Page Not Found');
 });
+
 
 // GLOBAL ERROR HANDLER 
 app.use((error: Error, req: Request, res: Response) => {
